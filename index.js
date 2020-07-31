@@ -48,6 +48,7 @@ wss.on("connection", ws => {
             //when a user tries to login
             case "login":
                 //Check if username is available
+                console.log(users)
                 if (users[name]) {
                     sendTo(ws, {
                         type: "login",
