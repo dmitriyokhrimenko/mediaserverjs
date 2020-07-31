@@ -79,7 +79,7 @@ wss.on("connection", ws => {
                     sendTo(offerRecipient, {
                         type: "offer",
                         offer: 'offer',
-                        name: ws.name
+                        name: name
                     });
                 } else {
                     sendTo(ws, {
@@ -95,6 +95,7 @@ wss.on("connection", ws => {
                     sendTo(answerRecipient, {
                         type: "answer",
                         answer: 'answer',
+                        name: ws.name,
                     });
                 } else {
                     sendTo(ws, {
