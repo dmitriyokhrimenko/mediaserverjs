@@ -56,12 +56,14 @@ wss.on("connection", ws => {
                     });
                 } else {
                     const id = uuidv4();
-                    const loggedIn = Object.values(
-                        users
-                    ).map(({id, name: userName}) => ({id, userName}));
+
                     users[name] = ws;
                     ws.name = name;
                     ws.id = id;
+
+                    const loggedIn = Object.values(
+                        users
+                    ).map(({id, name: userName}) => ({id, userName}));
                     sendTo(ws, {
                         type: "login",
                         success: true,
